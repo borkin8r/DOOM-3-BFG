@@ -1,0 +1,4 @@
+build/**/*
+/neo/.vs/**/*
+**/Debug/**/*
+*.vcxproj.user

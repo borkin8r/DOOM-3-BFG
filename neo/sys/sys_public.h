@@ -616,7 +616,7 @@ public:
 
 	void		SendPacket( const netadr_t to, const void *data, int size );
 
-	void		SetSilent( bool silent ) { this->silent = silent; }
+	void		SetSilent( bool isSilent ) { this->silent = isSilent; }
 	bool		GetSilent() const { return silent; }
 
 	int			packetsRead;
