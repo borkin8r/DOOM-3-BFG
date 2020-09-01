@@ -58,6 +58,8 @@ ID_INLINE void		Mem_Free( void *ptr ) { Mem_Free16( ptr ); }
 void *		Mem_ClearedAlloc( const int size, const memTag_t tag );
 char *		Mem_CopyString( const char *in );
 
+#pragma warning(disable : 4595)
+
 ID_INLINE void *operator new( size_t s ) {
 	return Mem_Alloc( s, TAG_NEW );
 }
