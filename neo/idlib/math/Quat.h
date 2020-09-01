@@ -250,11 +250,11 @@ ID_INLINE bool idQuat::operator!=( const idQuat &a ) const {
 	return !Compare( a );
 }
 
-ID_INLINE void idQuat::Set( float x, float y, float z, float w ) {
-	this->x = x;
-	this->y = y;
-	this->z = z;
-	this->w = w;
+ID_INLINE void idQuat::Set( float aX, float aY, float aZ, float aW ) {
+	this->x = aX;
+	this->y = aY;
+	this->z = aZ;
+	this->w = aW;
 }
 
 ID_INLINE idQuat idQuat::Inverse() const {
@@ -360,10 +360,10 @@ ID_INLINE idCQuat::idCQuat( float x, float y, float z ) {
 	this->z = z;
 }
 
-ID_INLINE void idCQuat::Set( float x, float y, float z ) {
-	this->x = x;
-	this->y = y;
-	this->z = z;
+ID_INLINE void idCQuat::Set( float aX, float aY, float aZ ) {
+	this->x = aX;
+	this->y = aY;
+	this->z = aZ;
 }
 
 ID_INLINE float idCQuat::operator[]( int index ) const {

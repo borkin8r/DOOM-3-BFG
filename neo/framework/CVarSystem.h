@@ -143,10 +143,10 @@ public:
 	int						GetInteger() const { return internalVar->integerValue; }
 	float					GetFloat() const { return internalVar->floatValue; }
 
-	void					SetString( const char *value ) { internalVar->InternalSetString( value ); }
-	void					SetBool( const bool value ) { internalVar->InternalSetBool( value ); }
-	void					SetInteger( const int value ) { internalVar->InternalSetInteger( value ); }
-	void					SetFloat( const float value ) { internalVar->InternalSetFloat( value ); }
+	void					SetString( const char *aValue ) { internalVar->InternalSetString( aValue ); }
+	void					SetBool( const bool aValue ) { internalVar->InternalSetBool( aValue ); }
+	void					SetInteger( const int aValue ) { internalVar->InternalSetInteger( aValue ); }
+	void					SetFloat( const float aValue ) { internalVar->InternalSetFloat( aValue ); }
 
 	void					SetInternalVar( idCVar *cvar ) { internalVar = cvar; }
 
@@ -277,17 +277,17 @@ extern idCVarSystem *		cvarSystem;
 ===============================================================================
 */
 
-ID_INLINE void idCVar::Init( const char *name, const char *value, int flags, const char *description,
-							float valueMin, float valueMax, const char **valueStrings, argCompletion_t valueCompletion ) {
-	this->name = name;
-	this->value = value;
-	this->flags = flags;
-	this->description = description;
-	this->flags = flags | CVAR_STATIC;
-	this->valueMin = valueMin;
-	this->valueMax = valueMax;
-	this->valueStrings = valueStrings;
-	this->valueCompletion = valueCompletion;
+ID_INLINE void idCVar::Init( const char *aName, const char *aValue, int aFlags, const char *aDescription,
+							float aValueMin, float aValueMax, const char **aValueStrings, argCompletion_t aValueCompletion ) {
+	this->name = aName;
+	this->value = aValue;
+	this->flags = aFlags;
+	this->description = aDescription;
+	this->flags = aFlags | CVAR_STATIC;
+	this->valueMin = aValueMin;
+	this->valueMax = aValueMax;
+	this->valueStrings = aValueStrings;
+	this->valueCompletion = aValueCompletion;
 	this->integerValue = 0;
 	this->floatValue = 0.0f;
 	this->internalVar = this;

@@ -446,14 +446,14 @@ ID_INLINE void idDrawVert::LerpAll( const idDrawVert &a, const idDrawVert &b, co
 	xyz = ::Lerp( a.xyz, b.xyz, f );
 	SetTexCoord( ::Lerp( a.GetTexCoord(), b.GetTexCoord(), f ) );
 
-	idVec3 normal = ::Lerp( a.GetNormal(), b.GetNormal(), f );
-	idVec3 tangent = ::Lerp( a.GetTangent(), b.GetTangent(), f );
+	idVec3 aNormal = ::Lerp( a.GetNormal(), b.GetNormal(), f );
+	idVec3 tempTangent = ::Lerp( a.GetTangent(), b.GetTangent(), f );
 	idVec3 bitangent = ::Lerp( a.GetBiTangent(), b.GetBiTangent(), f );
-	normal.Normalize();
-	tangent.Normalize();
+  aNormal.Normalize();
+  tempTangent.Normalize();
 	bitangent.Normalize();
-	SetNormal( normal );
-	SetTangent( tangent );
+	SetNormal( aNormal );
+	SetTangent( tempTangent );
 	SetBiTangent( bitangent );
 
 	color[0] = (byte)( a.color[0] + f * ( b.color[0] - a.color[0] ) );
@@ -472,8 +472,8 @@ ID_INLINE void idDrawVert::LerpAll( const idDrawVert &a, const idDrawVert &b, co
 idDrawVert::SetNativeOrderColor
 ========================
 */
-ID_INLINE void idDrawVert::SetNativeOrderColor( dword color ) {
-	*reinterpret_cast<dword *>(this->color) = color;
+ID_INLINE void idDrawVert::SetNativeOrderColor( dword aColor ) {
+	*reinterpret_cast<dword *>(this->color) = aColor;
 }
 
 /*
@@ -481,8 +481,8 @@ ID_INLINE void idDrawVert::SetNativeOrderColor( dword color ) {
 idDrawVert::SetColor
 ========================
 */
-ID_INLINE void idDrawVert::SetColor( dword color ) {
-	*reinterpret_cast<dword *>(this->color) = color;
+ID_INLINE void idDrawVert::SetColor( dword aColor) {
+	*reinterpret_cast<dword *>(this->color) = aColor;
 }
 
 /*
@@ -509,9 +509,9 @@ ID_INLINE void idDrawVert::SetTexCoordNative( const halfFloat_t s, const halfFlo
 idDrawVert::SetTexCoord
 ========================
 */
-ID_INLINE void idDrawVert::SetTexCoord( const idVec2 & st ) {
-	SetTexCoordS( st.x );
-	SetTexCoordT( st.y );
+ID_INLINE void idDrawVert::SetTexCoord( const idVec2 & aSt ) {
+	SetTexCoordS( aSt.x );
+	SetTexCoordT( aSt.y );
 }
 
 /*
@@ -574,8 +574,8 @@ ID_INLINE const halfFloat_t idDrawVert::GetTexCoordNativeT() const {
 idDrawVert::SetNativeOrderColor2
 ========================
 */
-ID_INLINE void idDrawVert::SetNativeOrderColor2( dword color2 ) {
-	*reinterpret_cast<dword *>(this->color2) = color2;
+ID_INLINE void idDrawVert::SetNativeOrderColor2( dword aColor2 ) {
+	*reinterpret_cast<dword *>(this->color2) = aColor2;
 }
 
 /*
@@ -583,8 +583,8 @@ ID_INLINE void idDrawVert::SetNativeOrderColor2( dword color2 ) {
 idDrawVert::SetColor
 ========================
 */
-ID_INLINE void idDrawVert::SetColor2( dword color2 ) {
-	*reinterpret_cast<dword *>(this->color2) = color2;
+ID_INLINE void idDrawVert::SetColor2( dword aColor2) {
+	*reinterpret_cast<dword *>(this->color2) = aColor2;
 }
 
 /*
