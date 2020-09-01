@@ -59,8 +59,8 @@ ID_INLINE idRandom::idRandom( int seed ) {
 	this->seed = seed;
 }
 
-ID_INLINE void idRandom::SetSeed( int seed ) {
-	this->seed = seed;
+ID_INLINE void idRandom::SetSeed( int aSeed ) {
+	this->seed = aSeed;
 }
 
 ID_INLINE int idRandom::GetSeed() const {
@@ -121,8 +121,8 @@ ID_INLINE idRandom2::idRandom2( unsigned long seed ) {
 	this->seed = seed;
 }
 
-ID_INLINE void idRandom2::SetSeed( unsigned long seed ) {
-	this->seed = seed;
+ID_INLINE void idRandom2::SetSeed( unsigned long aSeed ) {
+	this->seed = aSeed;
 }
 
 ID_INLINE unsigned long idRandom2::GetSeed() const {
