@@ -28,7 +28,7 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "precompiled.h"
 #pragma hdrstop
-
+#pragma warning( disable : 4458 )
 #define PUNCTABLE
 
 //longer punctuations first

@@ -28,6 +28,7 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "precompiled.h"
 #pragma hdrstop
+#pragma warning ( disable : 4458 )
 
 #ifdef USE_STRING_DATA_ALLOCATOR
 static idDynamicBlockAlloc<char, 1<<18, 128, TAG_STRING>	stringDataAllocator;

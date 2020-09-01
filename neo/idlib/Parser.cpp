@@ -28,7 +28,7 @@ If you have questions concerning this license or the applicable additional terms
 
 #include "precompiled.h"
 #pragma hdrstop
-
+#pragma warning( disable : 4458 )
 //#define DEBUG_EVAL
 #define MAX_DEFINEPARMS				128
 #define DEFINEHASHSIZE				2048

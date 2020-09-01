@@ -36,7 +36,7 @@ const float EPSILON		= 1e-6f;
 idPolynomial::Laguer
 =============
 */
-int idPolynomial::Laguer( const idComplex *coef, const int degree, idComplex &x ) const {
+int idPolynomial::Laguer( const idComplex *coef, const int aDegree, idComplex &x ) const {
 	const int MT = 10, MAX_ITERATIONS = MT * 8;
 	static const float frac[] = { 0.0f, 0.5f, 0.25f, 0.75f, 0.13f, 0.38f, 0.62f, 0.88f, 1.0f };
 	int i, j;
@@ -44,12 +44,12 @@ int idPolynomial::Laguer( const idComplex *coef, const int degree, idComplex &x 
 	idComplex dx, cx, b, d, f, g, s, gps, gms, g2;
 
 	for ( i = 1; i <= MAX_ITERATIONS; i++ ) {
-		b = coef[degree];
+		b = coef[aDegree];
 		err = b.Abs();
 		d.Zero();
 		f.Zero();
 		abx = x.Abs();
-		for ( j = degree - 1; j >= 0; j-- ) {
+		for ( j = aDegree - 1; j >= 0; j-- ) {
 			f = x * f + d;
 			d = x * d + b;
 			b = x * b + coef[j];
@@ -60,7 +60,7 @@ int idPolynomial::Laguer( const idComplex *coef, const int degree, idComplex &x 
 		}
 		g = d / b;
 		g2 = g * g;
-		s = ( ( degree - 1 ) * ( degree * ( g2 - 2.0f * f / b ) - g2 ) ).Sqrt();
+		s = ( ( aDegree - 1 ) * ( aDegree * ( g2 - 2.0f * f / b ) - g2 ) ).Sqrt();
 		gps = g + s;
 		gms = g - s;
 		abp = gps.Abs();
@@ -69,7 +69,7 @@ int idPolynomial::Laguer( const idComplex *coef, const int degree, idComplex &x 
 			gps = gms;
 		}
 		if ( Max( abp, abm ) > 0.0f ) {
-			dx = degree / gps;
+			dx = aDegree / gps;
 		} else {
 			dx = idMath::Exp( idMath::Log( 1.0f + abx ) ) * idComplex( idMath::Cos( i ), idMath::Sin( i ) );
 		}

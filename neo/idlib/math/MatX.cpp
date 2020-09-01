@@ -28,7 +28,7 @@ If you have questions concerning this license or the applicable additional terms
 
 #pragma hdrstop
 #include "../precompiled.h"
-
+#pragma warning( disable : 4465 4456 ) // why aren't variables being reused? or renamed?
 //===============================================================
 //
 //  idMatX

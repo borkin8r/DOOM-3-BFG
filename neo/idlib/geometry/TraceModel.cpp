@@ -916,13 +916,13 @@ idTraceModel::SetupPolygon
 */
 void idTraceModel::SetupPolygon( const idWinding &w ) {
 	int i;
-	idVec3 *verts;
+	idVec3 *aVerts;
 
-	verts = (idVec3 *) _alloca16( w.GetNumPoints() * sizeof( idVec3 ) );
+  aVerts = (idVec3 *) _alloca16( w.GetNumPoints() * sizeof( idVec3 ) );
 	for ( i = 0; i < w.GetNumPoints(); i++ ) {
-		verts[i] = w[i].ToVec3();
+    aVerts[i] = w[i].ToVec3();
 	}
-	SetupPolygon( verts, w.GetNumPoints() );
+	SetupPolygon( aVerts, w.GetNumPoints() );
 }
 
 /*

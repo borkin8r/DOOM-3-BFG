@@ -25,15 +25,14 @@ If you have questions concerning this license or the applicable additional terms
 
 ===========================================================================
 */
+#pragma warning ( disable : 4465 4456 ) // why aren't variables being reused? or renamed?
 #pragma hdrstop
 #include "../precompiled.h"
-
 // this file is full of intentional case fall throughs
 //lint -e616
 
 // the code is correct, it can't be a NULL pointer
 //lint -e613
-
 static idCVar lcp_showFailures( "lcp_showFailures", "0", CVAR_BOOL, "show LCP solver failures" );
 
 const float LCP_BOUND_EPSILON			= 1e-5f;
@@ -1740,9 +1739,9 @@ bool idLCP_Square::FactorClamped() {
 idLCP_Square::SolveClamped
 ========================
 */
-void idLCP_Square::SolveClamped( idVecX & x, const float * b ) {
+void idLCP_Square::SolveClamped( idVecX & x, const float * aB ) {
 	// solve L
-	LowerTriangularSolve( clamped, x.ToFloatPtr(), b, numClamped, 0 );
+	LowerTriangularSolve( clamped, x.ToFloatPtr(), aB, numClamped, 0 );
 
 	// solve U
 	UpperTriangularSolve( clamped, diagonal.ToFloatPtr(), x.ToFloatPtr(), x.ToFloatPtr(), numClamped );
@@ -2351,10 +2350,10 @@ bool idLCP_Symmetric::FactorClamped() {
 idLCP_Symmetric::SolveClamped
 ========================
 */
-void idLCP_Symmetric::SolveClamped( idVecX &x, const float *b ) {
+void idLCP_Symmetric::SolveClamped( idVecX &x, const float *aB ) {
 
 	// solve L
-	LowerTriangularSolve( clamped, solveCache1.ToFloatPtr(), b, numClamped, clampedChangeStart );
+	LowerTriangularSolve( clamped, solveCache1.ToFloatPtr(), aB, numClamped, clampedChangeStart );
 
 	// scale with D
 	Multiply( solveCache2.ToFloatPtr(), solveCache1.ToFloatPtr(), diagonal.ToFloatPtr(), numClamped );
