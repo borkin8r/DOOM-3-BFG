@@ -249,7 +249,6 @@ ID_INLINE_EXTERN bool IsValid( const type &v ) {
 IsValid
 ========================
 */
-template<>
 ID_INLINE_EXTERN bool IsValid( const float & f ) {	// these parameter must be a reference for the function to be considered a specialization
 	return !( IEEE_FLT_IS_NAN( f ) || IEEE_FLT_IS_INF( f ) || IEEE_FLT_IS_IND( f ) || IEEE_FLT_IS_DENORMAL( f ) );
 }
@@ -259,7 +258,6 @@ ID_INLINE_EXTERN bool IsValid( const float & f ) {	// these parameter must be a 
 IsNAN
 ========================
 */
-template<>
 ID_INLINE_EXTERN bool IsNAN( const float & f ) {	// these parameter must be a reference for the function to be considered a specialization
 	if ( IEEE_FLT_IS_NAN( f ) || IEEE_FLT_IS_INF( f ) || IEEE_FLT_IS_IND( f ) ) {
 		return true;
@@ -1373,7 +1371,6 @@ ID_INLINE_EXTERN T Lerp( const T from, const T to, float f ) {
 	return from + ( ( to - from ) * f );
 }
 
-template<>
 ID_INLINE_EXTERN int Lerp( const int from, const int to, float f ) { 
 	return idMath::Ftoi( (float) from + ( ( (float) to - (float) from ) * f ) );
 }
